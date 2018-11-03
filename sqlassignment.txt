@@ -1,0 +1,673 @@
+1 select DNAME FROM DEPT;
+
+2 SELECT ENAME FROM EMP;
+
+3  SELECT ENAME FROM EMP
+  2  WHERE DEPTNO= 30 ;
+
+4 select ENAME,EMPNO,DEPTNO
+  2  FROM EMP
+  3  WHERE JOB='CLERK' ;
+
+5 select ENAME, EMPNO,DEPTNO
+  2  from EMP
+  3  WHERE DEPTNO= 20 OR DEPTNO > 20 ;
+
+6 SELECT ENAME FROM EMP
+  2  WHERE COMM > SAL ;
+
+7  SELECT ENAME FROM EMP
+  2  WHERE COMM > (0.6*SAL) ;
+
+8  SELECT ENAME FROM EMP
+  2  WHERE COMM > 0.5*SAL ;
+
+9 select ENAME,JOB,SAL
+  2  FROM EMP
+  3  WHERE DEPTNO= 20 AND SAL >2000 ;
+
+10 SELECT ENAME FROM EMP
+  2  WHERE JOB='SALESMAN' AND SAL >= 1500 AND DEPTNO=30;
+
+11  select ENAME from EMP
+  2  WHERE JOB='PRESIDENT' OR JOB='MANAGER' ;
+
+12  SELECT ENAME FROM EMP
+  2  WHERE JOB='MANAGER' AND DEPTNO!=30 ;
+
+13 SELECT * FROM EMP
+  2  WHERE DEPTNO=10 AND (JOB = 'MANAGER' OR JOB = 'CLERK ');
+
+14 SELECT * FROM EMP
+  2  WHERE JOB='MANAGER' OR  (DEPTNO=10 AND JOB='CLERK' );
+
+15 SELECT * FROM EMP
+  2  WHERE (JOB='MANAGER' AND DEPTNO=10 ) OR (JOB='CLERK' AND DEPTNO=20) ;
+
+16 SELECT ENAME FROM EMP
+  2  WHERE (JOB!='CLERK' AND JOB!='MANAGER') AND SAL >= 2000 ;
+
+17 SELECT ENAME  FROM EMP
+  2  WHERE SAL  BETWEEN 1200 AND 1400 ;
+
+18  SELECT ENAME FROM EMP
+  2  WHERE JOB='CLERK' OR JOB='ANALYST' OR JOB='SALESMAN' ;
+
+19 SELECT ENAME FROM EMP
+  2  WHERE JOB!='CLERK' AND JOB!='ANALYST' AND JOB!='SALESMAN' ;
+
+20 SELECT ENAME FROM EMP
+  2  WHERE COMM=NULL ;
+
+21  SELECT ENAME FROM EMP
+  2  WHERE COMM=0;
+
+22 SELECT JOB FROM EMP
+  2  WHERE COMM IS NOT NULL;
+
+23  SELECT ENAME FROM EMP
+  2  WHERE COMM= NULL OR COMM <100 ;
+
+24 SELECT ENAME,SAL,SAL+NVL(comm,250) from EMP ;
+
+25 SELECT ENAME FROM EMP
+  2  WHERE (SAL + COMM) > 2000 ;
+
+26  SELECT ENAME FROM EMP
+  2  WHERE ENAME LIKE 'M%' ;
+
+27 SELECT ENAME FROM EMP
+  2  WHERE ENAME LIKE '%m' ;
+
+28  SELECT ENAME FROM EMP
+  2  WHERE ENAME LIKE '%M%' ;
+
+29  SELECT ENAME FROM EMP
+  2  WHERE ENAME LIKE '____N' ;
+
+30   SELECT ENAME FROM EMP
+  2  WHERE ENAME LIKE '__N%';
+
+31 SELECT ENAME FROM EMP
+  2  WHERE HIREDATE LIKE '%%FEB%%' ;
+
+32  SELECT ENAME,LAST_DAY(HIREDATE) FROM EMP
+  2  WHERE HIREDATE=LAST_DAY(HIREDATE) ;
+
+33  SELECT ENAME FROM EMP
+  2  where sysdate-hiredate > 12*365 ;
+
+34 select Ename from emp where extract(year from hiredate) = 2007 ;
+
+35 select ENAME || ',' || JOB FROM EMP;
+
+36 select Initcap(ename) from emp;
+  
+37 SELECT LPAD(ENAME, 15,' ') FROM EMP ;
+
+38  SELECT RPAD(ENAME, 15,'- ') FROM EMP ;
+
+39 select length(ename) from Emp;
+
+40 
+
+41 SELECT ENAME FROM EMP
+  2  WHERE ENAME NOT LIKE 'A%' ;
+
+42  SELECT ENAME FROM EMP
+  2  WHERE ENAME NOT LIKE '%R' ;
+
+43   SELECT SUBSTR(ENAME,1,3) FROM EMP;
+
+44  select substr(ename,-3) from emp;
+
+45  select REPLACE(ENAME,'A','E') FROM EMP;
+
+46 SELECT ENAME,INSTR(ENAME,'AR') FROM EMP;
+
+47 SELECT ROUND(SAL,-3) FROM EMP;
+
+48 SELECT SAL/30 FROM EMP;
+
+49 
+
+
+
+55 SELECT ENAME FROM EMP ORDER BY ENAME;
+
+56 SELECT ENAME FROM EMP ORDER BY HIREDATE;
+
+57  SELECT ENAME, JOB,SAL FROM EMP ORDER BY JOB,SAL;
+
+58  SELECT ENAME, JOB,SAL FROM EMP ORDER BY JOB ASC,SAL DESC;
+
+59 SELECT ENAME, JOB,SAL FROM EMP ORDER BY JOB DESC,SAL DESC;
+
+60 SELECT ENAME, EXTRACT(MONTH FROM HIREDATE) AS MONTH, EXTRACT(YEAR FROM HIREDATE) AS YEAR FROM EMP ORDER BY EXTRACT(MONTH FROM HIREDATE);
+
+61 SELECT ENAME, EXTRACT(MONTH FROM HIREDATE) AS MONTH, EXTRACT(YEAR FROM HIREDATE) AS YEAR FROM EMP ORDER BY EXTRACT(MONTH FROM HIREDATE) ASC, EXTRACT(YEAR FROM HIREDATE) DESC;
+
+
+SECTION 3
+
+
+
+S
+MARTIN
+MILLER
+
+SQL> SELECT ENAME FROM EMP
+  2  WHERE JOB='CLERK' OR JOB='ANALYST' OR JOB='SALESMAN' ;
+
+ENAME
+----------
+SMITH
+ALLEN
+WARD
+MARTIN
+SCOTT
+TURNER
+ADAMS
+JAMES
+FORD
+MILLER
+
+10 rows selected.
+
+SQL> SELECT ENAME FROM EMP
+  2  WHERE JOB!='CLERK' AND JOB!='ANALYST' AND JOB!='SALESMAN' ;
+
+ENAME
+----------
+JONES
+B
+ERROR at
+FORD
+MILLER
+
+14 rows selected.
+
+SQL> SELECT SUBSTR(ENAME,1,3) FROM EMP;
+
+SUBSTR(ENAME
+------------
+SMI
+ALL
+WAR
+JON
+MAR
+BLA
+CLA
+SCO
+KIN
+TUR
+ADA
+
+SUBSTR(ENAME
+------------
+JAM
+FOR
+MIL
+
+14 rows selected.
+
+SQL> SELECT SUBSTRING(ENAME,1,3) FROM EMP;
+SELECT SUBSTRING(ENAME,1,3) FROM EMP
+       *
+ERROR at line 1:
+ORA-00904: "SUBSTRING": invalid identifier
+
+
+SQL> ^X;
+SP2-0042: unknown command "" - rest of line ignored.
+SQL> SELECT SUBSTRING(ENAME,-3) FROM EMP;
+SELECT SUBSTRING(ENAME,-3) FROM EMP
+       *
+ERROR at line 1:
+ORA-00904: "SUBSTRING": invalid identifier
+
+
+SQL> select substr(ename,-3) from emp;
+
+SUBSTR(ENAME
+------------
+ITH
+LEN
+ARD
+NES
+TIN
+AKE
+ARK
+OTT
+ING
+NER
+AMS
+
+SUBSTR(ENAME
+------------
+MES
+ORD
+LER
+
+14 rows selected.
+
+SQL> ;
+  1* select substr(ename,-3) from emp
+SQL> select REPLACE(ENAME,'A','E') FROM EMP;
+
+REPLACE(EN
+----------
+SMITH
+ELLEN
+WERD
+JONES
+MERTIN
+BLEKE
+CLERK
+SCOTT
+KING
+TURNER
+EDEMS
+
+REPLACE(EN
+----------
+JEMES
+FORD
+MILLER
+
+14 rows selected.
+
+SQL> ;
+  1* select REPLACE(ENAME,'A','E') FROM EMP
+SQL> SELECT ENAME,PATINDEX('%AR%','EMP') FROM EMP ;
+SELECT ENAME,PATINDEX('%AR%','EMP') FROM EMP
+             *
+ERROR at line 1:
+ORA-00904: "PATINDEX": invalid identifier
+
+
+SQL> SELECT INSTR(ENAME,'AR') FROM EMP;
+
+INSTR(ENAME,'AR')
+-----------------
+                0
+                0
+                2
+                0
+                2
+                0
+                3
+                0
+                0
+                0
+                0
+
+INSTR(ENAME,'AR')
+-----------------
+                0
+                0
+                0
+
+14 rows selected.
+
+SQL> SELECT ENAME,INSTR(ENAME,'AR) FROM EMP;
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> SELECT ENAME,INSTR(ENAME,'AR') FROM EMP;
+
+ENAME      INSTR(ENAME,'AR')
+---------- -----------------
+SMITH                      0
+ALLEN                      0
+WARD                       2
+JONES                      0
+MARTIN                     2
+BLAKE                      0
+CLARK                      3
+SCOTT                      0
+KING                       0
+TURNER                     0
+ADAMS                      0
+
+ENAME      INSTR(ENAME,'AR')
+---------- -----------------
+JAMES                      0
+FORD                       0
+MILLER                     0
+
+14 rows selected.
+
+SQL> SELECT ROUND(SAL,-2) FROM EMP;
+
+ROUND(SAL,-2)
+-------------
+          800
+         1600
+         1300
+         3000
+         1300
+         2900
+         2500
+         3000
+         5000
+         1500
+         1100
+
+ROUND(SAL,-2)
+-------------
+         1000
+         3000
+         1300
+
+14 rows selected.
+
+SQL> SELECT ROUND(SAL,-3) FROM EMP;
+
+ROUND(SAL,-3)
+-------------
+         1000
+         2000
+         1000
+         3000
+         1000
+         3000
+         2000
+         3000
+         5000
+         2000
+         1000
+
+ROUND(SAL,-3)
+-------------
+         1000
+         3000
+         1000
+
+14 rows selected.
+
+SQL> SELECT SAL/30 FROM EMP;
+
+    SAL/30
+----------
+26.6666667
+53.3333333
+41.6666667
+99.1666667
+41.6666667
+        95
+81.6666667
+       100
+166.666667
+        50
+36.6666667
+
+    SAL/30
+----------
+31.6666667
+       100
+43.3333333
+
+14 rows selected.
+
+SQL> SELECT ENAME ,SAL*0.2 CASE SAL*0.2 >500 THEN 500 ELSE SAL*0.2 FROM EMP;
+SELECT ENAME ,SAL*0.2 CASE SAL*0.2 >500 THEN 500 ELSE SAL*0.2 FROM EMP
+                           *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> SELECT ENAME ,SAL*0.2 FROM EMP CASE SAL*0.2 >500 THEN 500 ELSE SAL*0.2;
+SELECT ENAME ,SAL*0.2 FROM EMP CASE SAL*0.2 >500 THEN 500 ELSE SAL*0.2
+                                    *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> SELECT ENAME ,SAL*0.2 FROM EMP CASE (SAL*0.2) >500 THEN 500 ELSE SAL*0.2;
+SELECT ENAME ,SAL*0.2 FROM EMP CASE (SAL*0.2) >500 THEN 500 ELSE SAL*0.2
+                                    *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> SELECT ENAME ,SAL*0.2 FROM EMP CASE (SAL*0.2) >500 THEN 500 ELSE SAL*0.2;
+SELECT ENAME ,SAL*0.2 FROM EMP CASE (SAL*0.2) >500 THEN 500 ELSE SAL*0.2
+                                    *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> SELECT ENAME, CASE WHEN SAL*0.2> 500 THEN 500 ELSE SAL*0.2 FROM EMP;
+SELECT ENAME, CASE WHEN SAL*0.2> 500 THEN 500 ELSE SAL*0.2 FROM EMP
+                                                           *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> SELECT ENAME, CASE WHEN SAL*0.2> 500 500 ELSE SAL*0.2 FROM EMP;
+SELECT ENAME, CASE WHEN SAL*0.2> 500 500 ELSE SAL*0.2 FROM EMP
+                                     *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> SELECT ENAME, CASE WHEN SAL*0.2> 500 500 ELSE SAL*0.2 END FROM EMP;
+SELECT ENAME, CASE WHEN SAL*0.2> 500 500 ELSE SAL*0.2 END FROM EMP
+                                     *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> SELECT ENAME, CASE WHEN SAL*0.2> THEN 500 ELSE SAL*0.2 END FROM EMP;
+SELECT ENAME, CASE WHEN SAL*0.2> THEN 500 ELSE SAL*0.2 END FROM EMP
+                                 *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> SELECT ENAME, CASE WHEN SAL*0.2>500 ELSE SAL*0.2 END FROM EMP;
+SELECT ENAME, CASE WHEN SAL*0.2>500 ELSE SAL*0.2 END FROM EMP
+                                    *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> -----------------SECTION 3-----------------
+SQL> SELECT ENAME FROM EMP ORDER BY ENAME;
+
+ENAME
+----------
+ADAMS
+ALLEN
+BLAKE
+CLARK
+FORD
+JAMES
+JONES
+KING
+MARTIN
+MILLER
+SCOTT
+
+ENAME
+----------
+SMITH
+TURNER
+WARD
+
+14 rows selected.
+
+SQL> SELECT ENAME FROM EMP ORDER BY HIREDATE;
+
+ENAME
+----------
+SMITH
+ALLEN
+WARD
+JONES
+BLAKE
+CLARK
+TURNER
+MARTIN
+KING
+JAMES
+FORD
+
+ENAME
+----------
+MILLER
+SCOTT
+ADAMS
+
+14 rows selected.
+
+SQL> SELECT ENAME, JOB,SAL FROM EMP ORDER BY JOB,SAL;
+
+ENAME      JOB              SAL
+---------- --------- ----------
+FORD       ANALYST         3000
+SCOTT      ANALYST         3000
+SMITH      CLERK            800
+JAMES      CLERK            950
+ADAMS      CLERK           1100
+MILLER     CLERK           1300
+CLARK      MANAGER         2450
+BLAKE      MANAGER         2850
+JONES      MANAGER         2975
+KING       PRESIDENT       5000
+MARTIN     SALESMAN        1250
+
+ENAME      JOB              SAL
+---------- --------- ----------
+WARD       SALESMAN        1250
+TURNER     SALESMAN        1500
+ALLEN      SALESMAN        1600
+
+14 rows selected.
+
+SQL> SELECT ENAME, JOB,SAL FROM EMP ORDER BY JOB ASC,SAL DESC;
+
+ENAME      JOB              SAL
+---------- --------- ----------
+FORD       ANALYST         3000
+SCOTT      ANALYST         3000
+MILLER     CLERK           1300
+ADAMS      CLERK           1100
+JAMES      CLERK            950
+SMITH      CLERK            800
+JONES      MANAGER         2975
+BLAKE      MANAGER         2850
+CLARK      MANAGER         2450
+KING       PRESIDENT       5000
+ALLEN      SALESMAN        1600
+
+ENAME      JOB              SAL
+---------- --------- ----------
+TURNER     SALESMAN        1500
+MARTIN     SALESMAN        1250
+WARD       SALESMAN        1250
+
+14 rows selected.
+
+SQL> SELECT ENAME, JOB,SAL FROM EMP ORDER BY JOB DESC,SAL DESC;
+
+ENAME      JOB              SAL
+---------- --------- ----------
+ALLEN      SALESMAN        1600
+TURNER     SALESMAN        1500
+WARD       SALESMAN        1250
+MARTIN     SALESMAN        1250
+KING       PRESIDENT       5000
+JONES      MANAGER         2975
+BLAKE      MANAGER         2850
+CLARK      MANAGER         2450
+MILLER     CLERK           1300
+ADAMS      CLERK           1100
+JAMES      CLERK            950
+
+ENAME      JOB              SAL
+---------- --------- ----------
+SMITH      CLERK            800
+FORD       ANALYST         3000
+SCOTT      ANALYST         3000
+
+14 rows selected.
+
+SQL> SELECT ENAME, EXTRACT(MONTH FROM HIREDATE) AS MONTH, EXTRACT(YEAR FROM HIREDATE) AS YEAR FROM EMP ORDER BY EXTRACT(MONTH FROM HIREDATE);
+
+ENAME           MONTH       YEAR
+---------- ---------- ----------
+MILLER              1       1982
+ALLEN               2       1981
+WARD                2       1981
+JONES               4       1981
+SCOTT               4       1987
+ADAMS               5       1987
+BLAKE               5       1981
+CLARK               6       1981
+TURNER              9       1981
+MARTIN              9       1981
+KING               11       1981
+
+ENAME           MONTH       YEAR
+---------- ---------- ----------
+SMITH              12       1980
+JAMES              12       1981
+FORD               12       1981
+
+14 rows selected.
+
+SQL> SELECT ENAME, EXTRACT(MONTH FROM HIREDATE) AS MONTH, EXTRACT(YEAR FROM HIREDATE) AS YEAR FROM EMP ORDER BY EXTRACT(MONTH FROM HIREDATE) ASC, EXTRACT(YEAR FROM HIREDATE) ASC;
+
+ENAME           MONTH       YEAR
+---------- ---------- ----------
+MILLER              1       1982
+ALLEN               2       1981
+WARD                2       1981
+JONES               4       1981
+SCOTT               4       1987
+BLAKE               5       1981
+ADAMS               5       1987
+CLARK               6       1981
+TURNER              9       1981
+MARTIN              9       1981
+KING               11       1981
+
+ENAME           MONTH       YEAR
+---------- ---------- ----------
+SMITH              12       1980
+JAMES              12       1981
+FORD               12       1981
+
+14 rows selected.
+
+SQL> SELECT ENAME, EXTRACT(MONTH FROM HIREDATE) AS MONTH, EXTRACT(YEAR FROM HIREDATE) AS YEAR FROM EMP ORDER BY EXTRACT(MONTH FROM HIREDATE) ASC, EXTRACT(YEAR FROM HIREDATE) DESC;
+
+ENAME           MONTH       YEAR
+---------- ---------- ----------
+MILLER              1       1982
+ALLEN               2       1981
+WARD                2       1981
+SCOTT               4       1987
+JONES               4       1981
+ADAMS               5       1987
+BLAKE               5       1981
+CLARK               6       1981
+TURNER              9       1981
+MARTIN              9       1981
+KING               11       1981
+
+ENAME           MONTH       YEAR
+---------- ---------- ----------
+JAMES              12       1981
+FORD               12       1981
+SMITH              12       1980
+
+14 rows selected.
+
+SQL>
+
+
+
