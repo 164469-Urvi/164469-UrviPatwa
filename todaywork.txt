@@ -1,0 +1,5 @@
+https://mdbootstrap.com/plugins/jquery/video/
+
+https://medium.com/@swarnakishore/how-to-include-and-use-jquery-in-angular-cli-project-592e0fe63176
+
+https://stackoverflow.com/questions/30623825/how-to-use-jquery-with-angular
