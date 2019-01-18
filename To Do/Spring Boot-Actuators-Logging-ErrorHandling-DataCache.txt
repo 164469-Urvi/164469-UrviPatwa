@@ -1,0 +1,12 @@
+Spring boot actuators tutorial and demo
+
+https://www.youtube.com/watch?v=zCtgl2fRw3c&list=PLQaBzcRBHtnNH2Cjn9w3Dyap4IYookqsb&index=6
+
+Spring Boot Logging Tutorial and Demo
+
+
+Spring Boot Error management Demo
+https://www.youtube.com/watch?v=xQLMRf3tuuI&index=10&list=PLQaBzcRBHtnNH2Cjn9w3Dyap4IYookqsb
+
+Spring Boot Data Cache Demo
+https://www.youtube.com/watch?v=csetfaTA_QU&index=11&list=PLQaBzcRBHtnNH2Cjn9w3Dyap4IYookqsb
