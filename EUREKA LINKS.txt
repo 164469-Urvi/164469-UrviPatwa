@@ -1,0 +1,24 @@
+EUREKA LINKS
+
+1. https://www.baeldung.com/spring-cloud-netflix-eureka
+
+2. http://www.java-allandsundry.com/2012/08/accept-header-vs-content-type-header.html
+
+3. https://stackoverflow.com/questions/44921788/what-is-subscribe-in-angular/44921830
+
+4. https://www.sitepoint.com/community/t/angular-2-accessing-json-in-a-array/241556
+
+5. https://microservices.io/patterns/microservices.html
+
+6. https://www.nginx.com/blog/building-microservices-using-an-api-gateway/
+
+7. https://dzone.com/articles/spring-boot-microservices-building-microservices-a
+
+8. https://www.baeldung.com/spring-cloud-netflix-eureka
+
+9. https://piotrminkowski.wordpress.com/2017/02/05/part-1-creating-microservice-using-spring-cloud-eureka-and-zuul/
+
+10. https://www.baeldung.com/intro-to-feign
+
+11. https://www.tutorialspoint.com/spring_boot/spring_boot_rest_template.htm
+
