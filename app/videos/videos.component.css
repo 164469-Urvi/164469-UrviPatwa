@@ -1,0 +1,12 @@
+.container-fluid{
+    padding-top:70px;
+  }
+  
+  table{
+    width: 100%;
+  }
+
+  td{
+    padding: 10px;
+    margin:5px;
+  }

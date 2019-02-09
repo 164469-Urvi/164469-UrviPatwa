@@ -1,0 +1,13 @@
+.container-fluid{
+    padding-top:90px;
+  }
+
+  .example-card{
+    float: left;
+    width: 40%;
+  }
+
+  .canvas{
+    width: 60%;
+    float:right;
+}

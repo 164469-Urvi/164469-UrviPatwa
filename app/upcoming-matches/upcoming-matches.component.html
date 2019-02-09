@@ -1,0 +1,59 @@
+<div class="container-fluid">
+
+<table class="table">
+<!-- <tr>
+  <td>
+    <div *ngFor="let match of matchArray | slice:0:startIndex">
+      <pre>
+        Teams : {{match.team-1}} vs {{match.team-2}}
+        Type : {{match.type}}
+        Date : {{match.date}}
+        Toss Winner Team : {{toss_winner_team}}
+        Match Started : {{match.matchStarted}}
+        Winner Team : {{match.winner_team}}
+      </pre>
+    </div>
+  </td>
+
+  <td>
+    <div *ngFor="let match of matchArray | slice:secondColStartIndex:endIndex">
+        <tr  style="width:500px">
+          <td >
+            <pre>
+            Teams : {{match.team-1}} vs {{match.team-2}}
+            Type : {{match.type}}
+            Date : {{match.date}}
+            Toss Winner Team : {{toss_winner_team}}
+            Match Started : {{match.matchStarted}}
+            Winner Team : {{match.winner_team}}
+          </pre>
+          </td>
+        </tr>
+        </div>
+ </td>
+</tr> -->
+
+    <tr>
+      <th class="text-center">Team-1</th>
+      <th class="text-center">Team-2</th>
+      <th class="text-center">Type</th>
+      <th class="text-center" >Match Started</th>
+      <th class="text-center" >Date</th>
+      <th class="text-center">Toss WinnerTeam</th>
+      <th class="text-center">Match WinnerTeam</th>
+    </tr>
+
+    <tr *ngFor="let match of liveMatches">
+     
+      <td>{{(match['team-1'])}}</td>
+      <td>{{(match['team-2'])}}</td>
+      <td>{{match.type}}</td>
+      <td> {{isMatchStarted(match.matchStarted)}} </td>
+      <td>{{match.dateTimeGMT}}</td>
+      <td >{{match.toss_winner_team}}</td>
+      <td >{{match.winner_team}}</td>
+    </tr>
+  </table>
+
+
+</div>

@@ -1,0 +1,47 @@
+.container-fluid{
+  padding-top:100px;
+}
+
+  .left {
+    animation-name: left;
+    animation-duration: 4s;
+  }
+  
+  @keyframes left {
+    100%   {left:0px; top:0px;}
+    0%  {left:600px;}
+   
+  }
+
+  .centerleft {
+    animation-name: centerleft;
+    animation-duration: 4s;
+  }
+  
+  @keyframes centerleft {
+    100%   {left:0px; top:0px;}
+    0%  {left:350px;}
+   
+  }
+  
+  
+  .centerright {
+    animation-name: centerright;
+    animation-duration: 4s;
+  }
+  
+  @keyframes centerright {
+    100%   {right:0px;top:0px}
+    0%  {right:350px;}
+   
+  }
+  .right {
+    animation-name: right;
+    animation-duration: 4s;
+  }
+  
+  @keyframes right {
+    100%   {right:0px;top:0px}
+    0%  {right:600px;}
+   
+  }
